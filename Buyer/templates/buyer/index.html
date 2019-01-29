@@ -1,0 +1,25 @@
+{% extends "buyer/base.html" %}
+{% load static %}
+{% block content %}
+    <div id="lunbo"> </div>
+        <div class="shop_list">
+            <div class="list1_box">
+                {% for data in datas %}
+                <div class="list_box">
+                    <dl>
+                        <a href="/buyer/goods_details/{{ data.id }}/">
+                        <dt><img src="{{ data.img }}"/> </dt>
+                        <dd align="center">
+                            <p>{{ data.name }}</p>
+                            <p>￥{{ data.price }}元</p>
+                        </dd>
+                        </a>
+                    </dl>
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <textarea name="editor1"></textarea>
+        <input type="submit" value="submit">
+    </form>
+    {{ data|safe }}
+        <script>
+            CKEDITOR.replace( 'editor1' , {uiColor: '#FFFFFF'});
+        </script>
+
+</body>
+</html>

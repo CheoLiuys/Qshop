@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>全球生鲜卖家管理后台</title>
+    <link rel="stylesheet" href="{% static 'seller/css/font.css' %}">
+    <link rel="stylesheet" href="{% static 'seller/css/xadmin.css' %}">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'seller/lib/layui/layui.js' %}" charset="utf-8"></script>
+    <script type="text/javascript" src="{% static 'seller/js/xadmin.js' %}"></script>
+  </head>
+  
+  <body class="layui-anim layui-anim-up">
+    <div class="x-nav">
+      <span class="layui-breadcrumb">
+        <a href="">商品管理</a>
+        <a href="">商品列表</a>
+      </span>
+    </div>
+    <div class="x-body">
+      <table class="layui-table">
+        <thead>
+          <tr>
+		    <th>商品id</th>
+            <th>商品编号</th>
+            <th>商品名称</th>
+            <th>商品原价</th>
+            <th>商品现价</th>
+            <th>商品库存</th>
+			<th>商品描述</th>
+            <th>操作</th>
+			</tr>
+        </thead>
+        <tbody>
+          {% for i in goodsList %}
+              <tr>
+                <td>{{ i.id }}</td>
+                <td>{{ i.goods_id }}</td>
+                <td>{{ i.goods_name }}</td>
+                <td>{{ i.goods_price }}</td>
+                <td>{{ i.goods_now_price }}</td>
+                <td>{{ i.goods_num }}</td>
+                <td>{{ i.goods_description }}</td>
+                <td >
+                    <a href="/seller/goods_change/{{ i.id }}/">编辑</a> <a href="/seller/goods_del/{{ i.id }}/">删除</a>
+                </td>
+              </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    </div>
+   
+  </body>
+
+</html>
